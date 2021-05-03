@@ -48,19 +48,19 @@ export default {
                 },
                 {
                     path: '/testcase',
-                    label: '测试用例',
+                    label: '链路监控',
                     name:'test-case',
                     icon: 's-operation'
                 },
               {
                     path: '/testexecute',
-                    label: '测试执行',
+                    label: '自动化接口测试',
                     name:'test-execute',
                     icon: 's-promotion'
                 },
                  {
                     path: '/testresult',
-                    label: '测试结果',
+                    label: '场景测试',
                     name:'test-result',
                     icon: 's-order'
                 },

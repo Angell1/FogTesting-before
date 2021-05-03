@@ -1,25 +1,34 @@
 <template>
   <div>
-      <div class="block" style="display: flex;justify-content: space-between">
-        <div >
-<!--           <span class="demonstration">选择日期</span>-->
-            <el-date-picker
-              v-model="value2"
-              type="datetimerange"
-              align="right"
-              start-placeholder="开始日期"
-              end-placeholder="结束日期"
-              :default-time="['12:00:00', '08:00:00']"
-              @change = "handeldateChange"
-              >
-            </el-date-picker>
-        </div>
+
+      <!--<div class="block" style="display: flex;justify-content: space-between">-->
+        <!--<div >-->
+<!--&lt;!&ndash;           <span class="demonstration">选择日期</span>&ndash;&gt;-->
+            <!--<el-date-picker-->
+              <!--v-model="value2"-->
+              <!--type="datetimerange"-->
+              <!--align="right"-->
+              <!--start-placeholder="开始日期"-->
+              <!--end-placeholder="结束日期"-->
+              <!--:default-time="['12:00:00', '08:00:00']"-->
+              <!--@change = "handeldateChange"-->
+              <!--&gt;-->
+            <!--</el-date-picker>-->
+        <!--</div>-->
+
+        <!--<div style="display: flex;justify-content: space-between">-->
+          <!--<el-input v-model="input" placeholder="请输入内容"></el-input>-->
+          <!--<el-button type="primary"  @click="" style="margin-left: 10px;">搜索</el-button>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!---->
 
         <div style="display: flex;justify-content: space-between">
-          <el-input v-model="input" placeholder="请输入内容"></el-input>
-          <el-button type="primary"  @click="" style="margin-left: 10px;">搜索</el-button>
+          <!--<el-input v-model="input" placeholder="请输入内容"></el-input>-->
+          <el-button type="primary"  @click="" style="margin-left: 10px;">创建</el-button>
         </div>
-      </div>
+
+
       <el-table
     ref="multipleTable"
     :data="tableData"
@@ -35,80 +44,59 @@
 <!--      测试ID-->
     <el-table-column
       prop="id"
-      label="测试用例ID"
+      label="监控任务ID"
       width="120">
       <template slot-scope="scope">{{ scope.row.id }}</template>
     </el-table-column>
 <!--      用例编号-->
      <el-table-column
       prop="test_id"
-      label="用例编号"
+      label="PSM"
       show-overflow-tooltip>
       <template slot-scope="scope">{{ scope.row.test_id }}</template>
     </el-table-column>
 <!--      测试项目-->
     <el-table-column
       prop="test_pro"
-      label="测试项目"
+      label="监控环境"
       show-overflow-tooltip>
      <template slot-scope="scope">{{ scope.row.test_pro }}</template>
     </el-table-column>
 <!--      测试用例是否关联-->
     <el-table-column
       prop="is_connect"
-      label="测试用例是否关联"
+      label="周期"
       show-overflow-tooltip>
      <template slot-scope="scope">{{ scope.row.is_connect }}</template>
     </el-table-column>
 <!--      测试输入-->
     <el-table-column
       prop="test_input"
-      label="测试输入"
+      label="优先级"
       show-overflow-tooltip>
      <template slot-scope="scope">{{ scope.row.test_input }}</template>
     </el-table-column>
 <!--      测试等级-->
     <el-table-column
       prop="test_level"
-      label="测试等级"
+      label="创建时间"
       show-overflow-tooltip>
      <template slot-scope="scope">{{ scope.row.test_level }}</template>
-    </el-table-column>
-<!--      测试模块-->
-    <el-table-column
-      prop="test_module"
-      label="测试模块"
-      show-overflow-tooltip>
-     <template slot-scope="scope">{{ scope.row.test_module }}</template>
-    </el-table-column>
-<!--      测试输出-->
-    <el-table-column
-      prop="test_output"
-      label="测试输出"
-      show-overflow-tooltip>
-      <template slot-scope="scope">{{ scope.row.test_output }}</template>
-    </el-table-column>
-<!--      测试步骤-->
-    <el-table-column
-      prop="test_step"
-      label="测试步骤"
-      show-overflow-tooltip>
-      <template slot-scope="scope">{{ scope.row.test_step }}</template>
     </el-table-column>
 <!--      测试目标-->
     <el-table-column
       prop="test_target"
-      label="测试目标"
+      label="任务状态"
       show-overflow-tooltip>
     <template slot-scope="scope">{{ scope.row.test_target }}</template>
     </el-table-column>
     <!--      测试-->
     <el-table-column
       prop=""
-      label="测试"
+      label="运行&暂停&删除"
       show-overflow-tooltip>
     <template slot-scope="scope">
-        <el-button @click="clickSelection(scope.$index, scope.row)"  size="mini">运行</el-button>
+        <el-button @click="clickSelection(scope.$index, scope.row)"  size="mini">运行&暂停&删除</el-button>
     </template>
     </el-table-column>
 
@@ -134,14 +122,7 @@
   </div>
 </template>
 
-<!--1、用例编号;-->
-<!--2、测试项目;-->
-<!--3、测试标题;-->
-<!--4、重要级别;-->
-<!--5、预置条件;-->
-<!--6、测试输入;-->
-<!--7、操作步骤;-->
-<!--8、预期输出-->
+
 <script>
     import axis from 'axios'
   export default {
